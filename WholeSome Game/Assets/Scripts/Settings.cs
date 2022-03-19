@@ -8,16 +8,16 @@ public class Settings : MonoBehaviour
     public AudioMixer audioMixer;
     public void SetTotalVolume(float volume)
     {
-        audioMixer.SetFloat("MasterVolume", volume);
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
     }
 
     public void SetMusic(float volume)
     {
-        audioMixer.SetFloat("Music", volume);
+        audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
     }
 
     public void SetSFX(float volume)
     {
-        audioMixer.SetFloat("SFX", volume);
+        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
     }
 }

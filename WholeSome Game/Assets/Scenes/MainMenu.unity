@@ -4259,6 +4259,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: d42c64c9f721e1749a56b34c3074faee, type: 2}
+  volSlider: {fileID: 233799825}
+  musicSlider: {fileID: 2075326028}
+  sfxSlider: {fileID: 1508258138}
 --- !u!82 &2023403456
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4269,7 +4272,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3794259145123738389, guid: d42c64c9f721e1749a56b34c3074faee, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1584e96bcaacd8c43810c08a4559d443, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c4c904a8edb0b6409abd0d559f61dd5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

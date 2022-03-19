@@ -2,12 +2,12 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
 [Uu]serSettings/
 /[Mm]emoryCaptures/
 
@@ -58,4 +58,5 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+/WholeSome-Game\Logs\shadercompiler-UnityShaderCompiler.exe0.log
 

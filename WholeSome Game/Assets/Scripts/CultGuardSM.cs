@@ -53,13 +53,14 @@ public class CultGuardSM : MonoBehaviour
         SM[currState]?.Invoke();
     }
 
-    void SetState(States newState)
+    public void SetState(States newState)
     {
         currState = newState;
     }
 
     void StateIdle()
     {
+        Debug.Log("Entered Idle");
         //Start timer
         idleTimer -= Time.deltaTime;
 
@@ -92,6 +93,7 @@ public class CultGuardSM : MonoBehaviour
 
     void StatePatrol()
     {
+        Debug.Log("Entered Patrol");
         enemy.SetDestination(navPoints[navIndex].transform.position);
 
         foreach (GameObject slave in slaves)
@@ -115,6 +117,7 @@ public class CultGuardSM : MonoBehaviour
 
     void StateInvestigate()
     {
+        Debug.Log("Entered Investigate");
         enemy.isStopped = true;
         // enable the UI question mark indicator
         detectionTimer -= Time.deltaTime;
@@ -132,6 +135,7 @@ public class CultGuardSM : MonoBehaviour
 
     void StateDistract()
     {
+        Debug.Log("Entered Distract");
         // Enable exclamation point UI
         float DistanceToTarget = Vector3.Distance(transform.position, Target.position);
         enemy.SetDestination(Target.position);
@@ -153,6 +157,7 @@ public class CultGuardSM : MonoBehaviour
 
     void StateChase()
     {
+        Debug.Log("Entered Chase");
         enemy.SetDestination(player.position);
         // Level failure on collision
     }

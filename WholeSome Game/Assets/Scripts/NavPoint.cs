@@ -10,8 +10,22 @@ public class NavPoint : MonoBehaviour
         {
             Debug.Log("Trigger entered");
             CultGuardSM CultGuard = other.GetComponent<CultGuardSM>();
-            CultGuard.navIndex++;
-            CultGuard.SetState(CultGuardSM.States.Patrol);
+            if (CultGuard.navIndex == CultGuard.navPoints.Length - 1)
+            {
+                CultGuard.navIndex = 0;
+            }
+            else
+            {
+                CultGuard.navIndex++;
+            }
+            if (CultGuard.currState != CultGuardSM.States.Chase && CultGuard.currState != CultGuardSM.States.Distract)
+            {
+                CultGuard.SetState(CultGuardSM.States.Patrol);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

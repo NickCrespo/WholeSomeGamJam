@@ -10,12 +10,14 @@ public class CultGuardSM : MonoBehaviour
     public float detectionTimer = 1.5f;
     public float distractionTimer;
     public float detectionRange;
+
+    public bool repositioning = false;
     Transform Target;
 
     Transform player;
     GameObject[] slaves;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int navIndex = 0;
     NavMeshAgent enemy;
 
@@ -48,7 +50,7 @@ public class CultGuardSM : MonoBehaviour
         slaves = GameObject.FindGameObjectsWithTag("Slave");
     }
 
-    public virtual void Update()
+    public void Update()
     {
         SM[currState]?.Invoke();
     }
@@ -58,18 +60,21 @@ public class CultGuardSM : MonoBehaviour
         currState = newState;
     }
 
-    void StateIdle()
+    public virtual void StateIdle()
     {
-        Debug.Log("Entered Idle");
         //Start timer
         idleTimer -= Time.deltaTime;
+        Debug.Log("Timer running");
 
         if (idleTimer <= 0)
         {
+            Debug.Log("Entering Patrol");
             SetState(States.Patrol);
+            idleTimer = 1;
         }
         else
         {
+            Debug.Log("Timer running");
             enemy.isStopped = true;
         }
 
@@ -91,10 +96,11 @@ public class CultGuardSM : MonoBehaviour
         }
     }
 
-    void StatePatrol()
+    public virtual void StatePatrol()
     {
         Debug.Log("Entered Patrol");
         enemy.SetDestination(navPoints[navIndex].transform.position);
+        repositioning = true;
 
         foreach (GameObject slave in slaves)
         {
@@ -102,7 +108,8 @@ public class CultGuardSM : MonoBehaviour
             if (DistanceToSlave <= detectionRange)
             {
                 Target = slave.transform;
-                //detectedSlave = true;
+                //repositioning = false;
+                Debug.Log("Entering Distract");
                 SetState(States.Distract);
             }
         }
@@ -110,14 +117,14 @@ public class CultGuardSM : MonoBehaviour
         float DistanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (DistanceToPlayer <= detectionRange)
         {
-            //detectedPlayer = true;
+            repositioning = false;
+            Debug.Log("Entering Investigate");
             SetState(States.Investigate);
         }
     }
 
-    void StateInvestigate()
+    public virtual void StateInvestigate()
     {
-        Debug.Log("Entered Investigate");
         enemy.isStopped = true;
         // enable the UI question mark indicator
         detectionTimer -= Time.deltaTime;
@@ -125,15 +132,17 @@ public class CultGuardSM : MonoBehaviour
         float DistanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (detectionTimer <= 0 && DistanceToPlayer <= detectionRange)
         {
+            Debug.Log("Entering Chase");
             SetState(States.Chase);
         }
         else
         {
+            Debug.Log("Entering Patrol");
             SetState(States.Patrol);
         }
     }
 
-    void StateDistract()
+    public virtual void StateDistract()
     {
         Debug.Log("Entered Distract");
         // Enable exclamation point UI
@@ -155,7 +164,7 @@ public class CultGuardSM : MonoBehaviour
         }
     }
 
-    void StateChase()
+    public virtual void StateChase()
     {
         Debug.Log("Entered Chase");
         enemy.SetDestination(player.position);

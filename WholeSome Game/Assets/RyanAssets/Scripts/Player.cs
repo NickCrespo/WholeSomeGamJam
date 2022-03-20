@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     CharacterController characterController;
     Vector3 gravity = new Vector3(0, -9.81f, 0);
 
+    public GameObject escapeWall;
+    public GameObject lockWall;
+
     public bool hasLockPick = false;
     public int lockpickCounter;
 
@@ -40,6 +43,8 @@ public class Player : MonoBehaviour
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        lockWall.SetActive(true);
+        escapeWall.SetActive(false);
     }
     void Start()
     {
@@ -49,6 +54,16 @@ public class Player : MonoBehaviour
     {
         hasLockPick = lockpickCounter > 0;
         MovePlayer();
+        if (followers.Count >= 2)
+        {
+            lockWall.SetActive(false);
+            escapeWall.SetActive(true);
+        }
+        else
+        {
+            lockWall.SetActive(true);
+            escapeWall.SetActive(false);
+        }
         //LeadFollowers();
     }
 

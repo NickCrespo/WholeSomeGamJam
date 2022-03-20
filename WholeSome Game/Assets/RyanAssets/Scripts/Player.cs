@@ -8,8 +8,9 @@ public class Player : MonoBehaviour
     public float speed = 7f;
     public float moveLerp = .9f;
     public float rotationLerp = .65f;
-    Vector3 moveInputVelocity;
-    // add normal velocity for falling
+    public Vector3 moveInputVelocity;
+    CharacterController characterController;
+    Vector3 gravity = new Vector3(0, -9.81f, 0);
 
     public List<Prisoner> followers = new List<Prisoner>();
     public float followDistance = 5;
@@ -33,6 +34,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
     void Start()
     {
         cameraControls.SetTarget(transform);
@@ -49,16 +54,29 @@ public class Player : MonoBehaviour
         Vector3 forward = Vector3.Cross(right, Vector3.up).normalized;
 
         Vector3 direction = (forward * Input.GetAxis("Vertical")) + (right * Input.GetAxis("Horizontal"));
-        moveInputVelocity = direction * speed * Time.deltaTime;
-        Vector3 newPosition = transform.position + moveInputVelocity;
+        //moveInputVelocity = direction * speed * Time.deltaTime;
+        //Vector3 newPosition = transform.position + moveInputVelocity;
 
-        Move(newPosition);
+        moveInputVelocity = direction * speed;
+
+        Move(moveInputVelocity + gravity);
+
+        //Move(newPosition);
         Rotate(direction);
     }
-    public void Move(Vector3 position)
+    public void Move(Vector3 direction)
     {
-        transform.position = Vector3.Lerp(transform.position, position, moveLerp);
+        characterController.Move(direction);
     }
+    //public void Move(Vector3 force)
+    //{
+    //    rigidbody.AddForce(force);
+    //    //rigidbody.MovePosition();
+    //}
+    //public void Move(Vector3 position)
+    //{
+    //    transform.position = Vector3.Lerp(transform.position, position, moveLerp);
+    //}
     void Rotate(Vector3 direction)
     {
         transform.LookAt(transform.position + Vector3.Lerp(transform.forward, direction, rotationLerp), Vector3.up);

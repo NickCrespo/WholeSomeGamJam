@@ -123,14 +123,10 @@ public class CameraControls : MonoBehaviour
             if (direction != Vector3.zero)
             {
                 newPosition = ClampToBoundary(newPosition);
-                transform.position = newPosition;
                 lerpPosition = newPosition;
-                return;
             }
-            else
-            {
-                transform.position = Vector3.Lerp(transform.position, lerpPosition, moveLerp);
-            }
+
+            transform.position = Vector3.Lerp(transform.position, lerpPosition, moveLerp);
         }
     }
     void UpdateRotationAndZoom()

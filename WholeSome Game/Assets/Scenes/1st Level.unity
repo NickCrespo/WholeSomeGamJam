@@ -5700,6 +5700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prisoner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9167309741556400040, guid: 1970bce24cac95a489a9e5cb1235f2a8, type: 3}
+      propertyPath: m_TagString
+      value: Slave
+      objectReference: {fileID: 0}
     - target: {fileID: 9167309741556400045, guid: 1970bce24cac95a489a9e5cb1235f2a8, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7826,6 +7830,10 @@ PrefabInstance:
     - target: {fileID: 9167309741556400040, guid: 1970bce24cac95a489a9e5cb1235f2a8, type: 3}
       propertyPath: m_Name
       value: Prisoner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167309741556400040, guid: 1970bce24cac95a489a9e5cb1235f2a8, type: 3}
+      propertyPath: m_TagString
+      value: Slave
       objectReference: {fileID: 0}
     - target: {fileID: 9167309741556400045, guid: 1970bce24cac95a489a9e5cb1235f2a8, type: 3}
       propertyPath: m_RootOrder
@@ -17915,11 +17923,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8739889946631879529, guid: e1fc2f0746b9e57468138c4e22c6bd1b, type: 3}
+      propertyPath: speed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739889946631879529, guid: e1fc2f0746b9e57468138c4e22c6bd1b, type: 3}
       propertyPath: cameraControls
       value: 
       objectReference: {fileID: 1482242134}
     - target: {fileID: 8739889946631879530, guid: e1fc2f0746b9e57468138c4e22c6bd1b, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739889946631879530, guid: e1fc2f0746b9e57468138c4e22c6bd1b, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -17991,6 +18007,10 @@ PrefabInstance:
     - target: {fileID: 9167309741556400040, guid: 1970bce24cac95a489a9e5cb1235f2a8, type: 3}
       propertyPath: m_Name
       value: Prisoner
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167309741556400040, guid: 1970bce24cac95a489a9e5cb1235f2a8, type: 3}
+      propertyPath: m_TagString
+      value: Slave
       objectReference: {fileID: 0}
     - target: {fileID: 9167309741556400045, guid: 1970bce24cac95a489a9e5cb1235f2a8, type: 3}
       propertyPath: m_RootOrder

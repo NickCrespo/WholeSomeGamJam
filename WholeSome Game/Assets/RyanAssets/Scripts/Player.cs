@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     CharacterController characterController;
     Vector3 gravity = new Vector3(0, -9.81f, 0);
 
+    public bool hasLockPick = false;
+    public int lockpickCounter;
+
     public List<Prisoner> followers = new List<Prisoner>();
     public float followDistance = 5;
 
@@ -44,6 +47,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        hasLockPick = lockpickCounter > 0;
         MovePlayer();
         //LeadFollowers();
     }

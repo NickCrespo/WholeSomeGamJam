@@ -1048,7 +1048,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -70}
-  m_SizeDelta: {x: 842, y: 910.8}
+  m_SizeDelta: {x: 845, y: 910.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &196174289
 MonoBehaviour:
@@ -1072,7 +1072,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -1097,7 +1097,16 @@ MonoBehaviour:
 
     https://freesound.org/people/tonsil5/sounds/416838/
 
-    https://freesound.org/people/plasterbrain/sounds/608431/'
+    https://freesound.org/people/plasterbrain/sounds/608431/
+
+    https://freesound.org/people/foxraid/sounds/449252/
+
+    https://freesound.org/people/MWLANDI/sounds/85870/
+
+    <a
+    href=''https://pngtree.com/so/retro%27%3Eretro png from pngtree.com/</a>
+
+'
 --- !u!222 &196174290
 CanvasRenderer:
   m_ObjectHideFlags: 0
